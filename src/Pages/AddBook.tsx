@@ -1,34 +1,36 @@
-//Add book  -- get book information using Book Component
+//@ts-nocheck
+import { useState } from "react";
 
-//Todo Add state to save the book
-type Books = {
-  bookname: string;
-  isbn: string;
-  location: string;
-  quantity: number;
-  dateReceived: string;
-};
+const AddBook = () => {
+  const [inputs, setInputs] = useState({});
 
-const AddBook = ({
-  bookname,
-  isbn,
-  location,
-  quantity,
-  dateReceived,
-}: Books) => {
+  function handleChange(event) {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({ ...values, [name]: value }));
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    alert(`Book Name: ${inputs.book}`);
+  }
+
   return (
     <>
-      <h1>Add Books to the Library</h1>
-      <form>
-        Book name
-        <input type="text">{bookname}</input>
-        isbn
-        <input type="text">{isbn}</input> location
-        <input type="text">{location}</input> quantity
-        <input type="text">{quantity}</input> dateReceived
-        <input type="text">{dateReceived}</input>
-        <input type="submit">Submit </input>
-      </form>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Add Book
+            <input
+              name="book"
+              onChange={handleChange}
+              value={inputs.book || ""}
+              type="text"
+            />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     </>
   );
 };
