@@ -11,6 +11,9 @@ const Home = () => {
         <button name="checkout" onClick={()=>{
           navigate('/checkout')
         }}>Checkout</button>
+        <button onClick= {()=>{navigate('/addperson')}}>Add Person</button>
+        <button onClick= {()=>{navigate('/deleteBook')}}>Delete Book</button>
+        <button onClick= {()=>{navigate('/returnbook')}}>ReturnBook  </button>
       </div>
     </>
   );

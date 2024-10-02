@@ -8,11 +8,7 @@ interface Books {
 
 
 const Book = ({ name, isbn, location }: Books) => {
-
-
-
-
-  return (
+ return (
     <>
       <h2>Book Name: {name}</h2>
       <h2>Book isbn: {isbn}</h2>
